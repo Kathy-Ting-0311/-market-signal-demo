@@ -1,0 +1,19 @@
+{
+  "selected": "Tavreniq",
+  "searched": true,
+  "date": "2026-11-10",
+  "queries": [
+    {
+      "q": "\"Market Signal\" fintech dashboard; \"marketsignal.com\"",
+      "result": "Rejected: existing financial dashboard at themarketsignal.net and other financial services."
+    },
+    {
+      "q": "\"Veydris\" fintech; \"veydris.com\"",
+      "result": "Rejected: existing game and AI automation names."
+    },
+    {
+      "q": "\"Tavreniq\" fintech; \"tavreniq.com\"",
+      "result": "Only unrelated watch storefront returned; no finance business or famous person with this exact name appeared in returned results. Domain is in use; not a claim of availability or trademark clearance."
+    }
+  ]
+}
