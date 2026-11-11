@@ -15,15 +15,7 @@ cd market-signal-demo
 npm start
 ```
 
-Then open **http://127.0.0.1:5173** in your browser. Press `Ctrl+C` in the terminal to stop it.
-
-`npm start` runs `node server.mjs`, a tiny static server for the files in `dist/`. Opening `dist/index.html` directly from disk will not work, because the app uses ES modules. Any static server works, for example:
-
-```sh
-python3 -m http.server 8000 --directory dist
-```
-
-then open http://127.0.0.1:8000.
+Then open **local network (e.g., http:// )** in your browser. Press `Ctrl+C` in the terminal to stop it.
 
 ## What is in it
 
