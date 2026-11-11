@@ -1,34 +1,46 @@
 # Tavreniq
 
-A dependency-free prediction market and stock forecast demo. All market data is synthetic and clearly labeled in the app. No live prices, real orders, or performance claims.
+**Incomplete demo project.** A dependency-free prediction-market and stock-forecast dashboard. Every price, probability and volume is synthetic; nothing here is live, real money or investment advice.
 
-## Run
+- Live preview: https://market-signal-demo.jiantingh2.chatgpt.site/ (may ask you to sign in)
+- Source: https://github.com/Kathy-Ting-0311/-market-signal-demo
 
-Requires Node 22 or newer.
+## Run locally
+
+Requires Node.js 22 or newer (`node --version` to check). There is nothing to install.
 
 ```sh
+git clone https://github.com/Kathy-Ting-0311/-market-signal-demo.git market-signal-demo
+cd market-signal-demo
 npm start
 ```
 
-Open http://127.0.0.1:5173. The deployable static app is in `dist/`.
+Then open **http://127.0.0.1:5173** in your browser. Press `Ctrl+C` in the terminal to stop it.
 
-## Features
+`npm start` runs `node server.mjs`, a tiny static server for the files in `dist/`. Opening `dist/index.html` directly from disk will not work, because the app uses ES modules. Any static server works, for example:
 
-- Four selectable stock histories, four chart periods, hover inspection, and a five-session forecast with uncertainty bands.
-- MAE, MAPE and directional accuracy computed from 30 rolling one-step forecasts.
-- Event markets with category filters and search.
-- Yes/No paper orders with whole shares, integer-cent accounting, validation and local persistence.
-- A paper portfolio, account reset, watchlist and CSV data export.
-- Responsive desktop, tablet and phone layouts; keyboard focus, reduced motion and native accessible trade dialog.
+```sh
+python3 -m http.server 8000 --directory dist
+```
 
-## Validation
+then open http://127.0.0.1:8000.
 
-`npm run check` checks JavaScript syntax and tests the forecast calculations and order accounting.
+## What is in it
 
-`tests/browser.html` is a same-origin interaction harness. Serve the project root to run it; it exercises stock changes, chart ranges, forecast toggle, watchlist, search/filter, input validation, order creation and reload persistence. It restores existing stored account data afterward.
+- Four stock histories with chart periods, hover inspection and a five-session forecast with uncertainty bands.
+- MAE, MAPE and directional accuracy from 30 rolling one-step forecasts.
+- Event markets with filters and search, Yes/No paper orders with local persistence.
+- Paper portfolio, watchlist, account reset and CSV export.
+- Keyboard focus, reduced motion and responsive layouts.
 
-The data seed and model are in `dist/model.js`. `PLAN.md` explains implementation decisions and the adaptation of the supplied design skill to an application dashboard.
+## Checks
+
+```sh
+npm run check
+```
+
+Runs JavaScript syntax checks and tests the forecast calculations and order accounting. `tests/browser.html` is a manual interaction harness; serve the project root to use it.
 
 ## Limitations
 
-Forecast bands use an approximate normal-residual assumption; coverage has not been validated. Prices, volumes and probabilities are fixtures. Weekday date generation does not implement exchange holidays. Paper execution has no fees, order book or settlement. Stored data is per browser and can be cleared through the portfolio reset.
+Forecast bands use an approximate normal-residual assumption and their coverage is unvalidated. Prices, volumes and probabilities are fixtures; weekday dates ignore exchange holidays. Paper execution has no fees, order book or settlement, and stored data is per browser. The data seed and model live in `dist/model.js`; `PLAN.md` explains implementation decisions.
